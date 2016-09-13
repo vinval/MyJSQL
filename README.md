@@ -38,12 +38,12 @@ Next step is declaring sql.js into index.html or whatever is main page after jQu
   ***deleteRows***,
   ***alterAdd***,
   ***alterDrop***,
-  ***alterCol***,
+  ***alterCol***
 * **Procedure:**  
   Allows to create, drop and call procedure with methods:
   ***create***,
   ***drop***,
-  ***call***,
+  ***call***
 * **array**  
   Returns an array to use of:
   ***databases***,
