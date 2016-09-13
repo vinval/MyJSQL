@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head profile="http://www.w3.org/2005/10/profile">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MyJSQL</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="js/myjsql-1.0.0.js"></script>
+	<script>
+    	var myjsql = $.jsql({
+			host: "localhost", //this parameter is not necessary if you set it into php file
+			username: "root",		//this parameter is not necessary if you set it into php file
+			password: "root",		//this parameter is not necessary if you set it into php file
+			dbName: "databaseName",	//this parameter is not necessary if you set it into php file or declare in every method
+			alert: true				//return an alert every function. To control code is better console log setted true by default
+		});
+		//Let's start with a connection test
+		myjsql.connectionTest();		//return an alert that shows if connection is successfully appened
+		myjsql.database.create();		//creating database usin pre declared dbName
+		myjsql.database.create({		//create a database based on new declaration
+			dbName: "databaseName2"	//<- new databse name
+		});
+		myjsql.database.create({
+			dbName: "databasename3"	//create a database based new declaration and callback function
+		}, function(){
+			myjsql.serverTime();
+		});
+    </script>
+</head>
+<body>
+	<ul>MyJSQL OPTIONS:
+        <li>url: "php/jsql-3.0.0.php"</li>
+        <li>host: false</li>
+        <li>username: false</li>
+        <li>password: false</li>
+        <li>dbName: false</li>
+        <li>tbName: false</li>
+        <li>alert: false</li>
+        <li>logs: true</li>
+        <li>async: true</li>
+        <li>cache: false</li>
+        <li>loader: true</li>
+        <li>loaderImage: false</li>
+        <li>loaderOpacity: false</li>
+        <li>loaderText: false</li>
+        <li>loaderWidth: false</li>
+        <li>loaderHeight: false</li>
+        <li>encCycles: 1</li>
+	</ul>
+	<br>
+    <ul>MyJSQL METHODS:
+        <li>$.jsql.connectionTest();</li>
+        <li>$.jsql.serverTime({<br>
+            format: "Y/m/d H:i:sa", //optional<br>
+            timeStamp: "now" //optional<br>
+        });</li>
+        <li>$.jsql.md5("string");</li>
+        <li>$.jsql.database.create({<br>
+            dbName: false, //optional<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.database.drop({<br>
+            dbName: false, //optional<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.table.create({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+            columns: [], //not optional is an array ex. ["colName1 INT(6) AUTO_INCREMENT PRIMARY KEY", "colName2 VARCHAR(25) NULL"]<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.table.drop({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.table.truncate({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.table.insertRow({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+            row: [], //not optional is an array ex. ["colName1=1", "colName2='example text'"]<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.table.updateRows({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+            set: [], //not optional is an array ex. ["colName1=1", "colName2='example text'"]<br>
+            where: "", //optional<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.table.deleteRows({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+            where: "", //optional<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.table.alterAdd({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+            columns: [], //not optional is an array ex. ["colName3 INT(6) AUTO_INCREMENT PRIMARY KEY", "colName4 VARCHAR(25) NULL"]<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.table.alterDrop({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+            columns: [], //not optional is an array ex. ["colName3", "colName4"]<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.table.alterCol({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+            columns: [], //not optional is an array ex. ["colName3", "colName4"]<br>
+            dataType: "", //not optional is a strng ex. ["INT(6) AUTO_INCREMENT PRIMARY KEY"]<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.array.databases();</li>
+        <li>$.jsql.table.tables({<br>
+            dbName: false, //optional<br>
+        });</li>
+        <li>$.jsql.array.columns({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+        });</li>
+        <li>$.jsql.array.select({<br>
+            tbName: false, //not optional<br>
+            dbName: false, //optional<br>
+            what: "", //optional is a string if not setted is * by default<br>
+            where: "", //optional<br>
+            orderBy: "", //optional<br>
+            closeConnection: true //optional<br>
+        });</li>
+        <li>$.jsql.procedure.create({<br>
+            dbName: false, //optional<br>
+            procedureName: "", //not optional is a string ex. nameProcedure<br>
+            procedureString: "", //not ptional is a string that represent the query<br>
+            arguments: [] //optional is an array ex. ["IN val1 INT", "IN val2 TEXT"]
+        });</li>
+        <li>$.jsql.procedure.drop({<br>
+            dbName: false, //optional<br>
+            procedureName: "", //not optional is a string ex. nameProcedure<br>
+        });</li>
+        <li>$.jsql.procedure.call({<br>
+            dbName: false, //optional<br>
+            procedureName: "" //not optional is a string ex. nameProcedure(val1, val2)<br>
+        });</li>
+        <li>$.jsql.query({<br>
+            dbName: false, //optional<br>
+            queryString: "", //not optional is a string ex. "SELECT * FROM table"<br>
+        });</li>
+	</ul>
+</div>
+</body>
+</html>
