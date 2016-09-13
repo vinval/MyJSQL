@@ -3,7 +3,7 @@ Managing MYSQL database via JQuery
 
 ## Demo
 $.jsql.database.create({
-  dbName: “newDatabase”;
+  dbName: “newDatabase”
 });
 
 ## Description
