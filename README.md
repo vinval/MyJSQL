@@ -62,7 +62,7 @@ MyJSQL has been tested into principal browsers:
 * Google Chrome
 * Apple Safari
 * Mozilla Firefox
-* Opera 11.0
+* Opera
 * Microsoft Internet Explorer
 
 ## License
