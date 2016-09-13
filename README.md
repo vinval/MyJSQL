@@ -12,7 +12,7 @@ With an hidden php file into your server it can calls queries in totally securit
 Php language knowledges are not necessary, so you will manage mysql database using only javascript.
 
 ## Setup
-What you have to do is only copy and past jsql.js and sql.php files into your main folder into server and target php file into sql file (by default it point at a php folder).
+What you have to do is only copy and past myjsql-1.0.0.js and myjsql-1.0.0.php files into your main folder into server and target php file into sql file (by default it point at a php folder).
 Next step is declaring sql.js into index.html or whatever is main page after jQuery declaration as follow:
 
 <script src=“myjsql-1.0.0.js”></script> 
