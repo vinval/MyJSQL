@@ -50,7 +50,7 @@ Next step is declaring sql.js into index.html or whatever is main page after jQu
   ***tables***,
   ***columns***,
   ***select***
-  this one create an array from selection you call
+  this one creates an array from selection you call
 * **Query**
   Is a generic query method that returns an array if you do a select sql function
 
