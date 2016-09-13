@@ -16,7 +16,7 @@
 		});
 		//Let's start with a connection test
 		myjsql.connectionTest();		//return an alert that shows if connection is successfully appened
-		myjsql.database.create();		//creating database usin pre declared dbName
+		myjsql.database.create();		//creating database using dbName declared yet
 		myjsql.database.create({		//create a database based on new declaration
 			dbName: "databaseName2"	//<- new databse name
 		});
@@ -28,7 +28,7 @@
     </script>
 </head>
 <body>
-	<ul>MyJSQL OPTIONS:
+    <ul>MyJSQL OPTIONS:
         <li>url: "php/jsql-3.0.0.php"</li>
         <li>host: false</li>
         <li>username: false</li>
@@ -46,8 +46,8 @@
         <li>loaderWidth: false</li>
         <li>loaderHeight: false</li>
         <li>encCycles: 1</li>
-	</ul>
-	<br>
+    </ul>
+    <br>
     <ul>MyJSQL METHODS:
         <li>$.jsql.connectionTest();</li>
         <li>$.jsql.serverTime({<br>
