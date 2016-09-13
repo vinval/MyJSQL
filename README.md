@@ -30,25 +30,25 @@ Next step is declaring sql.js into index.html or whatever is main page after jQu
   ***drop***
 * **table**  
   it has other methods as:
-  ***create***
-  ***drop***
-  ***truncate***
-  ***insertRow***
-  ***updateRows***
-  ***deleteRows***
-  ***alterAdd***
-  ***alterDrop***
-  ***alterCol***
+  ***create***,
+  ***drop***,
+  ***truncate***,
+  ***insertRow***,
+  ***updateRows***,
+  ***deleteRows***,
+  ***alterAdd***,
+  ***alterDrop***,
+  ***alterCol***,
 * **Procedure:**  
   Allows to create, drop and call procedure with methods:
-  ***create***
-  ***drop***
-  ***call***
-* **Array**  
+  ***create***,
+  ***drop***,
+  ***call***,
+* **array**  
   Returns an array to use of:
-  ***databases***
-  ***tables***
-  ***columns***
+  ***databases***,
+  ***tables***,
+  ***columns***,
   ***select***
   this one create an array from selection you call
 * **Query**
