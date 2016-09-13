@@ -5,7 +5,7 @@ class jsql {
 	// SET HERE THE SECURITY CONNECTION VARIABLES
 	private $host = "localhost";
 	private $username = "root";
-	private $password = "";
+	private $password = "root";
 	private $dbName = "";
 	// MD5 ENCRYPTION
 	private function priv_encrypt () {
