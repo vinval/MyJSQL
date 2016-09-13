@@ -54,11 +54,6 @@ Next step is declaring sql.js into index.html or whatever is main page after jQu
 * **Query**
   Is a generic query method that returns an array if you do a select sql function
 
-## Requirements
-
-### Mandatory requirements
-* [jQuery UI widget factory](https://api.jqueryui.com/jQuery.widget/) v. 1.9+.
-
 ## Browsers
 
 ### Desktop and Mobile browsers
