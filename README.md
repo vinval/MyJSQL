@@ -26,7 +26,7 @@ Next step is declaring sql.js into index.html or whatever is main page after jQu
   Allows you to convert a string into md5 also into many cycles you will choose.
 * **database:**  
   it has other methods as:
-  ***create***
+  ***create***,
   ***drop***
 * **table**  
   it has other methods as:
