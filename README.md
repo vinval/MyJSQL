@@ -1,5 +1,5 @@
 # MyJSQL
-Managing MYSQL database via JQuery
+Managing MYSQL database with JQuery
 
 ## Demo
 $.jsql.database.create({
