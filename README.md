@@ -13,7 +13,7 @@ Php language knowledges are not necessary, so you will manage mysql database usi
 
 ## Setup
 What you have to do is only copy and past myjsql-1.0.0.js and myjsql-1.0.0.php files into your main folder into server and target php file into sql file (by default it point at a php folder).
-Next step is declaring sql.js into index.html or whatever is main page after jQuery declaration as follow:
+Next step is declaring mysql-1.0.0.js into index.html or whatever is main page after jQuery declaration as follow:
 
 <script src=“myjsql-1.0.0.js”></script> 
 
