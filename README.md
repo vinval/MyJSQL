@@ -19,7 +19,7 @@ Next step is declaring sql.js into index.html or whatever is main page after jQu
 
 ## Features
 * **connectionTest:**  
-  Allows to test connection before starting to use or to test everytime the connection.
+  Allows to test connection before starting to use or testing everytime the connection.
 * **serverTime:**  
   shows what time is on server. You can obtain it in various formats
 * **md5:**  
