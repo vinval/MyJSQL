@@ -28,7 +28,7 @@ Next step is declaring sql.js into index.html or whatever is main page after jQu
   it has other methods as:
   ***create***,
   ***drop***
-* **table**  
+* **table:**  
   it has other methods as:
   ***create***,
   ***drop***,
@@ -44,7 +44,7 @@ Next step is declaring sql.js into index.html or whatever is main page after jQu
   ***create***,
   ***drop***,
   ***call***
-* **array**  
+* **array:**  
   Returns an array to use of:
   ***databases***,
   ***tables***,
