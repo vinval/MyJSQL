@@ -419,6 +419,7 @@
 				},
 				insertRow: function(options) {
 					var start = JSQLgetTime();
+					var row = [];
 					var callback;
 					var args = arguments;
 					var opt = $.extend({
@@ -434,18 +435,18 @@
 							}
 						}
 					}, options);
-					var row = JSQLrowsToString(encodeURI(opt.row));
+					row = JSQLrowsToString(opt.row);
 					var cols = (function() {
-						var arr = new Array();
-						for (var n=0; n<row.length; n+=2) {
-							arr.push(row[n]);
+						var arr = [];
+						for (var n=0; n<row.length; n++) {
+							if (n%2==0) arr.push(row[n]);
 						}
 						return arr;
 					})();
 					var vals = (function() {
-						var arr = new Array();
-						for (var n=1; n<row.length; n+=2) {
-							arr.push(row[n]) ;
+						var arr = [];
+						for (var n=1; n<row.length; n++) {
+							if (n%2!=0) arr.push(row[n]) ;
 						}
 						return arr;
 					})();
@@ -1234,9 +1235,13 @@
 			}
 			return array;
 		}
-		function JSQLrowsToString (row) {
-			var splitted = new Array();
-			splitted = row.split(/=/g);
+		function JSQLrowsToString (rows) {
+			var splitted = [];
+			for (var n=0; n<rows.length; n++) {
+				var r = encodeURI(rows[n]).split(/=/g);
+				splitted.push(r[0]);
+				splitted.push(r[1]);
+			}
 			return splitted;
 		}
 		function JSQLwhereToString (row) {
