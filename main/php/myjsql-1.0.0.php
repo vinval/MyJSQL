@@ -611,7 +611,7 @@ class jsql {
 				while ($row = mysqli_fetch_array($query)) {
 					for ($i=0; $i<$query->field_count; $i++) {
 						$str .=$row[$i];
-						if ($i<$query->field_count-1) $str .=",";
+						if ($i<$query->field_count-1) $str .="<,>";
 					}
 					$str .= "<|>";
 				}
