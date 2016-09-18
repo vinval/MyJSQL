@@ -1231,7 +1231,7 @@
 			var s2 = e.split("<|>");
 			for (var i=0; i<s2.length; i++) {
 				array.push(s2[i]);
-				array[i] = array[i].split(",");
+				array[i] = array[i].split("<,>");
 			}
 			return array;
 		}
