@@ -513,7 +513,7 @@
 						opt.dbName?"dbName="+opt.dbName:set.dbName?"dbName="+set.dbName:"",
 						"tableUpdateRows=true",
 						opt.tbName?"tbName="+opt.tbName:set.tbName?"tbName="+set.tbName:"",
-						"set="+encodeURI(opt.set),
+						"set="+JSQLwhereToString (opt.set),
 						"where="+JSQLwhereToString (opt.where),
 						"closeConnection="+(opt.closeConnection?0:1)
 					].join("&");
