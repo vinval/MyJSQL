@@ -275,8 +275,8 @@ class jsql {
 		$dbName = $_POST['dbName']?$_POST['dbName']:$this->dbName;
 		$tbName = $_POST['tbName'];
 		$set = replaceOperands($_POST['set']);
-		$where = $_POST['where']?replaceOperands($_POST['where']):"1";
-		$sql = "UPDATE `".$dbName."`.`".$tbName."` SET ".$set." WHERE ".$where;
+		$where = $_POST['where']=="" ? " " : " WHERE ".replaceOperands($_POST['where']);
+		$sql = "UPDATE `".$dbName."`.`".$tbName."` SET ".$set.$where;
 		$conn = $this->connect();
 		if (mysqli_select_db($conn, $dbName)) {
 			if ($this->priv_arrayTables($tbName)) {
