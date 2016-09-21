@@ -892,7 +892,7 @@
 					var callback;
 					var args = arguments;
 					var opt = $.extend({
-						functionName: "",
+						procedureName: "",
 						dbName: false,
 						closeConnection: true,
 						cb: function () {
