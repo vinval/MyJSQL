@@ -23,8 +23,11 @@ class jsql {
 	private function priv_serverTime () {
 		$format = $_POST['format'];
 		$timeStamp = strtotime($_POST['timeStamp']);
-		$d = date($format, $timeStamp);
-		return $d;
+		switch ($format) {
+			case "microtime": return microtime($timeStamp); break;
+			case "time": return time($timeStamp); break;
+			default : return date($format, $timeStamp);
+		}
 	}
 	function serverTime(){
 		echo $this->priv_serverTime();
@@ -251,7 +254,7 @@ class jsql {
 				if ($query = $conn->query($sql)) {
 					$count = mysqli_affected_rows($conn);
 					$this->closeConnection($conn);
-					if ($count == 0) return "Conditions doesn't matching with any rows!"; else return "successfully deleted ".$count." rows ".$sql;
+					if ($count == 0) return "(!) Conditions doesn't matching with any rows!"; else return "successfully deleted ".$count." rows ".$sql;
 				} else {
 					$error = mysqli_error($conn);
 					$this->closeConnection($conn);
@@ -283,7 +286,7 @@ class jsql {
 				if ($conn->query($sql) === TRUE) {
 					$count = mysqli_affected_rows($conn);
 					$this->closeConnection($conn);
-					if ($count == 0) return "Conditions doesn't matching with any rows!"; else return "successfully updated ".$count." rows ".$sql;
+					if ($count == 0) return "(!) Conditions doesn't matching with any rows!"; else return "successfully updated ".$count." rows ".$sql;
 				} else {
 					$error = mysqli_error($conn);
 					$this->closeConnection($conn);
@@ -607,23 +610,54 @@ class jsql {
 		if (mysqli_select_db($conn, $dbName)) {
 			if ($this->priv_arrayTables($tbName, true)) {
 				$query = $conn->query($sql);
-				$str = "";
-				while ($row = mysqli_fetch_array($query)) {
-					for ($i=0; $i<$query->field_count; $i++) {
-						$str .=$row[$i];
-						if ($i<$query->field_count-1) $str .="<,>";
+				$what = str_replace("DISTINCT ", "", $what);
+				if ($what!=="*") {
+					$col = explode(",", $what);
+				} else {
+					$col = explode(",", $this->priv_arrayColumns());
+				}
+				if($_POST['JSON']==false) {
+					$str = "";
+					while ($row = mysqli_fetch_array($query)) {
+						for ($i=0; $i<$query->field_count; $i++) {
+							$str .=$row[$i];
+							if ($i<$query->field_count-1) $str .="<,>";
+						}
+						$str .= "<|>";
 					}
-					$str .= "<|>";
+					return substr($str, 0, -3);
+				} else {
+					$str = "[";
+					while ($row = mysqli_fetch_array($query)) {
+						$str .= "{";
+						for ($i=0; $i<$query->field_count; $i++) {
+							$str .= $col[$i].":\"".$row[$i]."\"";
+							if ($i<$query->field_count-1) $str .=",";
+						}
+						$str .= "},";
+					}
+					if ($str!=="[") {
+						$str = substr($str, 0, -1);
+						$str .= "]";
+						return $str;
+					} else {
+						return false;
+					}
 				}
 			} else {
 				return "(!) The column you are trying to call does not exsist. ";
-			}
-			return substr($str, 0, -3);
+			}				
 		}
 		$this->closeConnection($conn);
 	}
 	public function arraySelect () {
 		echo $this->priv_arraySelect();
+	}
+	private function priv_column_type ($col) {
+		$conn = $this->connect();
+		$sql = "	SELECT DATA_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE table_name = '".$_POST['tbName']."' AND COLUMN_NAME = '".$col."'";
+		$query = $conn->query($sql);
+		return mysqli_fetch_array($query);
 	}
 }
 // EXTRA CLASS FUNCTIONS
