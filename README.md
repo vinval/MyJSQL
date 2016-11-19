@@ -135,7 +135,7 @@ $.jsql.connectionTest(function(){
 The serverTime method runs a call to the server, which will return the information in the string format on hour, minutes and seconds set on the server
 This method uses the following parameter:
 - format: "Y/m/d H:i:sa",		//formato di visualizzazione
-- timeStamp: "now"		//temporalizzazione (Quando?)
+- timeStamp: "now" //when?
 
 For example:
 var time = $.jsql.serverTime();
@@ -193,7 +193,7 @@ $.jsql.databases(function(dbs){
 Produces the list of the databases and it inserts them in the body of the web page.
 
 
-METODI PUT
+THE PUT METHODS
 The database method
 The database method works using two functions:
 - create();	//creates the database with the chosen name
