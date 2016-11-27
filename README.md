@@ -16,7 +16,7 @@ With MyJSQL the pages can be written in simple html and code javascript.
 The Plugin, furthermore, exploits the potential of (asyncrone) calls, which united with the callback, become a strong tool to use.
 
 
-You can use JSON callback to get more powerfull.
+You can use JSON callback to get more powerful.
 
 
 ## HOW TO START
