@@ -16,6 +16,9 @@ With MyJSQL the pages can be written in simple html and code javascript.
 The Plugin, furthermore, exploits the potential of (asyncrone) calls, which united with the callback, become a strong tool to use.
 
 
+You can use JSON callback to get more powerfull.
+
+
 ## HOW TO START
 
 
@@ -63,6 +66,7 @@ Next there is a list of the parameters:
 - logs: true,		//(boolean) indicates if there must be a message returned to the console.log after every function 
 - async: true,		//(boolean) sets the async as default (this method will be explained separately)
 - cache: false,		//(boolean) sets to false the memorization of the data in the cache 
+- JSON: false,          //(boolean) sets the callback: JSON or Array
 - loader: true,		//(boolean) visualizes a preloader when waiting that the function will solve
 - loaderImage: false,	//(string) sets the url of an alternative image
 - loaderOpacity: false,	//(string) Sets the opacità of the background (the values go from “0.0” to “1.0”
