@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 // jsql CLASS uses MYSQL functions to create and edit tables with only javascript functions
 //
 class jsql {
