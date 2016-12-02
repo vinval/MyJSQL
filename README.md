@@ -189,7 +189,7 @@ $.jsql.array.select({
 Examples of uses:
 
 $.jsql.databases(function(dbs){
-	For (var n=0; n<dbs.length; n++) {
+	For (var n = 0; n < dbs.length; n ++) {
 	  $(“body”).append(dbs[n]+”<br>”);
   }
 });
